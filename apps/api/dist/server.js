@@ -21,6 +21,7 @@ app.register(cors_1.default, {
 app.get('/', (request, reply) => __awaiter(void 0, void 0, void 0, function* () {
     return { message: 'LITSA Backend Activo 🚀' };
 }));
+// Este es el punto clave 👇
 const port = Number(process.env.PORT) || 3000;
 app.listen({ port }, (err, address) => {
     if (err) {

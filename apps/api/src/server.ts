@@ -11,7 +11,9 @@ app.get('/', async (request, reply) => {
   return { message: 'LITSA Backend Activo 🚀' };
 });
 
+// Este es el punto clave 👇
 const port = Number(process.env.PORT) || 3000;
+
 app.listen({ port }, (err, address) => {
   if (err) {
     console.error(err);
