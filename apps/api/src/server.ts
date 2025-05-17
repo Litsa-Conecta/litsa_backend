@@ -1,19 +1,22 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import dotenv from 'dotenv';
-dotenv.config();
-
-import { authPlugin } from './plugins/auth';
-import { crmRoutes } from './routes/crm';
 
 const app = Fastify();
 
-app.register(cors);
-app.register(authPlugin);
-app.register(crmRoutes);
+app.register(cors, {
+  origin: '*',
+});
 
-app.listen({ port: Number(process.env.PORT) || 3000 }, (err, address) => {
-  if (err) throw err;
-  console.log(`Server listening on ${address}`);
+app.get('/', async (request, reply) => {
+  return { message: 'LITSA Backend Activo 🚀' };
+});
+
+const port = Number(process.env.PORT) || 3000;
+app.listen({ port }, (err, address) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log(`Servidor corriendo en ${address}`);
 });
 
