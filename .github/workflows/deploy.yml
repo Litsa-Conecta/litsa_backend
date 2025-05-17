@@ -1,0 +1,29 @@
+name: Deploy to Railway
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - run: npm install
+
+      - run: npm run build
+
+      - name: Deploy to Railway
+        run: |
+          curl -sSL https://raw.githubusercontent.com/railwayapp/cli/main/install.sh | sh
+          railway login --apiKey ${{ secrets.RAILWAY_API_KEY }}
+          railway up
+        env:
+          RAILWAY_API_KEY: ${{ secrets.RAILWAY_API_KEY }}
+

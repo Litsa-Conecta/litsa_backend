@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  api:
+    build: ./apps/api
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    depends_on:
+      - db
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: litsa
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: litsa_db
+    ports:
+      - '5432:5432'
+
