@@ -8,7 +8,7 @@ app.register(cors, {
 });
 
 app.get('/', async (request, reply) => {
-return { message: 'LITSA Backend funcionando correctamente ✅' };
+return { message: 'Versión final lista 🚀' };
 });
 
 // Este es el punto clave 👇

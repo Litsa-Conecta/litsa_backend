@@ -4,8 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "build": "tsc"
+    "start": "ts-node src/server.ts"
   },
   "author": "",
   "license": "ISC",
@@ -20,4 +19,3 @@
     "typescript": "^5.8.3"
   }
 }
-
