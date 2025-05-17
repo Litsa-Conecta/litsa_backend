@@ -19,7 +19,7 @@ app.register(cors_1.default, {
     origin: '*',
 });
 app.get('/', (request, reply) => __awaiter(void 0, void 0, void 0, function* () {
-    return { message: 'LITSA Backend Activo 🚀' };
+    return { message: 'LITSA Backend funcionando correctamente ✅' };
 }));
 // Este es el punto clave 👇
 const port = Number(process.env.PORT) || 3000;
