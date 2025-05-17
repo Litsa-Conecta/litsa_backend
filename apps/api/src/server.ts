@@ -14,7 +14,7 @@ app.get('/', async (request, reply) => {
 // Este es el punto clave 👇
 const port = Number(process.env.PORT) || 3000;
 
-app.listen({ port }, (err, address) => {
+app.listen({ port, host: '0.0.0.0' }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
